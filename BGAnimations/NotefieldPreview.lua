@@ -75,8 +75,9 @@ for i, pn in ipairs(GAMESTATE:GetEnabledPlayers()) do
                     self:AutoPlay(true)
 
                     LoadModule("Player.SetSpeed.lua")(pn)
-                    local PlayerModsArray = GAMESTATE:GetPlayerState(pnNoteField):GetPlayerOptionsString("ModsLevel_Preferred")
-                    self:GetPlayerOptions("ModsLevel_Current"):FromString(PlayerModsArray)
+                    self:ModsFromString("C550,overhead" ) -- this makes it just a simple chart preview instead of a mod preview, but at least it works.
+                    --local PlayerModsArray = GAMESTATE:GetPlayerState(pnNoteField):GetPlayerOptionsString("ModsLevel_Preferred")
+                    --self:GetPlayerOptions("ModsLevel_Current"):FromString(PlayerModsArray)
                 end,
 
                 CurrentStepsP1ChangedMessageCommand=function(self) self:queuecommand("Refresh") end,
@@ -95,8 +96,9 @@ for i, pn in ipairs(GAMESTATE:GetEnabledPlayers()) do
                     --SCREENMAN:SystemMessage(StepsType)
 
                     LoadModule("Player.SetSpeed.lua")(pn)
-                    local PlayerModsArray = GAMESTATE:GetPlayerState(pnNoteField):GetPlayerOptionsString("ModsLevel_Preferred")
-                    self:GetPlayerOptions("ModsLevel_Current"):FromString(PlayerModsArray)
+					self:ModsFromString("C550,overhead" ) -- this makes it just a simple chart preview instead of a mod preview, but at least it works.
+                    --local PlayerModsArray = GAMESTATE:GetPlayerState(pnNoteField):GetPlayerOptionsString("ModsLevel_Preferred")
+                    --self:GetPlayerOptions("ModsLevel_Current"):FromString(PlayerModsArray)
 
                     if not STCache[pn] or STCache[pn] ~= StepsType then
                         self:ChangeReload(Steps)
